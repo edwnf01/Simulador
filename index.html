@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="img/icon.png" type="image/x-icon">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>ColorSim</title>
+    <style>
+        body {
+			background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column; /* Para centralizar verticalmente */
+        }
+
+       #img1{
+            max-width: 100%;
+            max-height: 100%;
+			opacity: 0.01;
+            transition: opacity 1s; /* Define a transição de fade de 3 segundos */
+			z-index:0;
+			position:absolute;
+		}
+	   
+	   #img2{
+            max-width: 100%;
+            max-height: 100%;
+			opacity: 0.01;
+            transition: opacity 2s; /* Define a transição de fade de 3 segundos */
+			z-index:0;
+			position:absolute;
+		}
+		#img3{
+            max-width: 100%;
+            max-height: 100%;
+			opacity: 0.01;
+            transition: opacity 2s; /* Define a transição de fade de 3 segundos */
+			z-index:0;
+			position:absolute;
+		}
+	   
+	   #img4{
+            max-width: 100%;
+            max-height: 100%;
+			opacity: 0.01;
+            transition: opacity 2s; /* Define a transição de fade de 3 segundos */
+			z-index:0;
+			position:absolute;
+		}
+		#img5{
+            max-width: 100%;
+            max-height: 100%;
+			opacity: 0.01;
+            transition: opacity 2s; /* Define a transição de fade de 3 segundos */
+			z-index:0;
+			position:absolute;
+		}
+		
+		 #imgtouch  {
+            max-width: 100%;
+            max-height: 100%;
+			opacity: 0;
+            transition: opacity 2s; /* Define a transição de fade de 1 segundos */
+			z-index:0;
+			position:absolute;
+        }
+		
+		.blinking-image {
+				animation: blink 5s ease infinite; /* Defina a animação de piscar */
+			}
+
+			@keyframes blink {
+				0%, 50%, 100% {
+					opacity: 1; /* Opacidade 100% (visível) */
+				}
+				25%, 75% {
+					opacity: 0; /* Opacidade 0% (invisível) */
+				}
+			}
+    </style>
+</head>
+<body>
+    <img id="img1" src="img/img1.png" alt="Logo">
+    <img id="img2" src="img/img2.png" alt="Logo">
+    <img id="img3" src="img/img3.png" alt="Logo">
+    <img id="img4" src="img/img4.png" alt="Logo">
+    <img id="img5" src="img/img5.png" alt="Logo">
+    <img id="imgtouch" src="img/imgtouch.png" alt="Logo">
+    
+    <script>
+        // Aguarda 3 segundos antes de começar o fade-out e redirecionamento
+        setTimeout(function() {
+            var img1 = document.getElementById("img1");            
+            img1.style.opacity = "1"; 
+                setTimeout(function() {
+					var img2 = document.getElementById("img2");
+					img2.style.opacity = "1";
+					setTimeout(function() {
+						var img3 = document.getElementById("img3");
+						img3.style.opacity = "1";
+						setTimeout(function() {
+							var img4 = document.getElementById("img4");
+							img4.style.opacity = "1";
+							setTimeout(function() {
+								var img5 = document.getElementById("img5");
+								img5.style.opacity = "1";
+								setTimeout(function() {
+									var touch = document.getElementById("imgtouch");
+									touch.style.opacity = "1";
+									touch.classList.add("blinking-image");
+									document.addEventListener("click", function(event) {
+										window.location.href = "inicio/";
+									});
+								}, 500);
+							}, 500);
+						}, 500);
+					}, 500);
+            }, 1500); // 2000 milissegundos (2 segundos)
+        }, 500); // 1000 milissegundos (1 segundo)
+		
+    </script>
+</body>
+</html>

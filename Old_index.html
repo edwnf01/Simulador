@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="img/icon.png" type="image/x-icon">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>ColorSim</title>
+    <style>
+        body {
+			background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column; /* Para centralizar verticalmente */
+        }
+
+       #logo{
+            max-width: 100%;
+            max-height: 100%;
+			opacity: 0.01;
+            transition: opacity 3s; /* Define a transição de fade de 3 segundos */
+			z-index:0;
+			position:absolute;
+		}
+	   
+	   
+	   #slogan {
+            max-width: 100%;
+            max-height: 100%;
+			opacity: 0;
+            transition: opacity 2s; /* Define a transição de fade de 1 segundos */
+			z-index:0;
+			position:absolute;
+        }
+		
+		 #touch  {
+            max-width: 100%;
+            max-height: 100%;
+			opacity: 0;
+            transition: opacity 2s; /* Define a transição de fade de 1 segundos */
+			z-index:0;
+			position:absolute;
+        }
+		
+		.blinking-image {
+				animation: blink 5s ease infinite; /* Defina a animação de piscar */
+			}
+
+			@keyframes blink {
+				0%, 50%, 100% {
+					opacity: 1; /* Opacidade 100% (visível) */
+				}
+				25%, 75% {
+					opacity: 0; /* Opacidade 0% (invisível) */
+				}
+			}
+    </style>
+</head>
+<body>
+    <img id="logo" src="img/logo.png" alt="Logo">
+    <img id="slogan" src="img/slogan.png" alt="Slogan">
+    <img id="touch" src="img/touch.png" alt="Touch">
+    
+    <script>
+        // Aguarda 3 segundos antes de começar o fade-out e redirecionamento
+        setTimeout(function() {
+            var logo = document.getElementById("logo");
+            
+            logo.style.opacity = "1"; // Configura a opacidade para 1 para iniciar o fade-in
+            
+            // Após 2 segundos (tempo da transição), redireciona para outra página
+            setTimeout(function() {
+			    var slogan = document.getElementById("slogan");
+                slogan.style.opacity = "1";
+				 setTimeout(function() {
+					var touch = document.getElementById("touch");
+					touch.style.opacity = "1";
+					touch.classList.add("blinking-image");
+					document.addEventListener("click", function(event) {
+						window.location.href = "inicio/";
+					});
+				}, 2500); // 3000 milissegundos (3 segundos)
+            }, 3000); // 2000 milissegundos (2 segundos)
+        }, 500); // 1000 milissegundos (1 segundo)
+		
+    </script>
+</body>
+</html>
